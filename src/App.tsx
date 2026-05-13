@@ -25,7 +25,8 @@ import {
   Menu,
   X,
   ArrowUp,
-  CheckCircle2
+  CheckCircle2,
+  Globe
 } from 'lucide-react';
 
 // --- Types ---
@@ -118,11 +119,30 @@ export default function App() {
       <nav id="navbar" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg py-3 mt-0' : 'bg-transparent py-5 mt-8'}`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-white">
-            <div className="bg-secondary p-1.5 rounded-lg shadow-lg">
-              <Plane className="w-6 h-6 rotate-45" />
+          <div className="flex items-center gap-3 text-white group cursor-pointer">
+            <div className="relative">
+              <div className="bg-gradient-to-br from-gold to-secondary p-2 rounded-xl shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
+                <Globe className="w-7 h-7 text-white" />
+              </div>
+              <motion.div 
+                animate={{ 
+                  y: [-2, 2, -2],
+                  x: [-1, 1, -1]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute -top-1 -left-1 bg-white p-1 rounded-full shadow-md"
+              >
+                <Plane className="w-4 h-4 text-secondary rotate-45" />
+              </motion.div>
             </div>
-            <span className="text-2xl font-black tracking-tight">أسفار طيبة</span>
+            <div className="flex flex-col leading-tight">
+              <span className="text-2xl font-black tracking-tighter bg-gradient-to-l from-white via-gold to-white bg-clip-text text-transparent">أسفار طيبة</span>
+              <span className="text-[10px] font-bold text-gold/80 tracking-[0.2em] uppercase">Asfar Tiba Travel</span>
+            </div>
           </div>
 
           {/* Desktop Menu */}
@@ -535,11 +555,19 @@ export default function App() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="flex flex-col gap-6">
-               <div className="flex items-center gap-2">
-                <div className="bg-secondary p-1.5 rounded-lg">
-                  <Plane className="w-5 h-5 rotate-45" />
+               <div className="flex items-center gap-3 text-white">
+                <div className="relative">
+                  <div className="bg-gradient-to-br from-gold to-secondary p-2 rounded-xl">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="absolute -top-1 -left-1 bg-white p-0.5 rounded-full shadow-md">
+                    <Plane className="w-3 h-3 text-secondary rotate-45" />
+                  </div>
                 </div>
-                <span className="text-2xl font-black">أسفار طيبة</span>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-xl font-black bg-gradient-to-l from-white to-gold bg-clip-text text-transparent">أسفار طيبة</span>
+                  <span className="text-[8px] font-bold text-gold/60 tracking-widest uppercase">Asfar Tiba Travel</span>
+                </div>
               </div>
               <p className="text-white/50 text-sm leading-relaxed">بوابتك الرائدة لعالم السفر والجمال. نضع خبرة سنواتنا بين يديك لنضمن لك رحلة آمنة وممتعة في أي مكان حول العالم.</p>
               <div className="flex items-center gap-3">
