@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700;800&display=swap');
+
+@theme {
+  --font-sans: "Cairo", "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Tajawal", "Cairo", sans-serif;
+
+  --color-primary: #1A3A5C;
+  --color-secondary: #FF6B35;
+  --color-gold: #D4A853;
+  --color-light: #F8F4EF;
+  --color-dark: #0D1F2D;
+  --color-text: #2C3E50;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    direction: rtl;
+  }
+  
+  body {
+    @apply bg-light text-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Custom Gradients for Destinations */
+.grad-saudi { background: linear-gradient(135deg, #1A3A5C 0%, #2E5A88 100%); }
+.grad-turkey { background: linear-gradient(135deg, #A82025 0%, #D43F3F 100%); }
+.grad-uae { background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%); }
+.grad-morocco { background: linear-gradient(135deg, #006233 0%, #009639 100%); }
+.grad-malaysia { background: linear-gradient(135deg, #003366 0%, #004D99 100%); }
+.grad-georgia { background: linear-gradient(135deg, #5C1A3A 0%, #882E5A 100%); }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
